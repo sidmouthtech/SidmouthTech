@@ -33,24 +33,36 @@
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             width: 100%;
-            max-width: 900px;
+            max-width: 600px; /* Slimmer width for a clean, flyer-style vertical layout */
             padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 250px;
-            gap: 30px;
-        }
-
-        .left-column {
             display: flex;
             flex-direction: column;
+            align-items: center; /* Centers content vertically down the page */
+            text-align: center;
         }
 
-        .right-column {
+        /* Branding Column (Now prominently at the top) */
+        .branding-header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            padding-top: 10px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .logo-container {
+            width: 180px;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* Typography */
@@ -63,10 +75,9 @@
 
         .owner-name {
             color: var(--text-dark);
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 500;
-            text-align: center;
-            margin-top: 15px;
+            margin-top: 5px;
         }
 
         .tagline {
@@ -77,32 +88,34 @@
         }
 
         .intro {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         /* Services List */
         .services-list {
             list-style: none;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            text-align: left; /* Keeps list items neatly aligned on the left */
+            display: inline-block; /* Centers the whole list block in the container */
         }
 
         .services-list li {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+            font-size: 1.15rem;
+            margin-bottom: 14px;
             position: relative;
             padding-left: 20px;
         }
 
         .services-list li::before {
             content: "•";
-            color: black;
+            color: var(--primary-blue);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             position: absolute;
             left: 0;
-            top: -2px;
+            top: -3px;
         }
 
         .service-highlight {
@@ -112,61 +125,59 @@
         .location-info {
             font-style: italic;
             font-size: 1.1rem;
-            line-height: 1.5;
-            margin-bottom: 25px;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
         .cta-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             margin-bottom: 20px;
         }
 
-        /* Fluid Logo Layout */
-        .logo-container {
-            width: 100%;
-            max-width: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* Balanced Contact Layout (Row format for 3 distinct items) */
+        /* Vertical Contact Stack */
         .contact-grid {
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-top: auto;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+            width: 100%;
             border-top: 1px solid #eeeeee;
-            padding-top: 20px;
+            padding-top: 25px;
+        }
+
+        .phone-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             gap: 12px;
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 1.1rem;
-            transition: transform 0.2s;
+            font-size: 1.15rem;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
         }
 
         .contact-item:hover {
-            transform: translateX(3px);
+            transform: translateX(4px);
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary-blue);
         }
 
         /* Embedded SVG Icons */
         .contact-item svg {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             fill: currentColor;
             flex-shrink: 0;
         }
@@ -176,48 +187,14 @@
         .icon-email { color: var(--text-dark); }
         .icon-facebook { color: #1877F2; }
 
-        .phone-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        /* Responsive Design for Mobile Devices */
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
+        /* Mobile tweaks to keep it comfortable on small screens */
+        @media (max-width: 480px) {
             .container {
-                grid-template-columns: 1fr;
-                padding: 25px 20px;
-                gap: 15px;
+                padding: 30px 20px;
             }
-
-            .right-column {
-                grid-row: 1;
-                margin-bottom: 20px;
-                border-bottom: 1px solid #eeeeee;
-                padding-bottom: 20px;
-            }
-
             h1 {
                 font-size: 1.8rem;
-                text-align: center;
             }
-
-            .tagline {
-                font-size: 1.1rem;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .contact-grid {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-
             .contact-item {
                 font-size: 1.1rem;
             }
@@ -228,59 +205,57 @@
 
     <div class="container">
         
-        <!-- Left Side: Core Information -->
-        <div class="left-column">
-            <h1>Sidmouth Tech Ltd</h1>
-            <div class="tagline">Friendly & Patient Home IT Help</div>
-            
-            <div class="intro">Stuck with Technology? We can help!</div>
-            
-            <ul class="services-list">
-                <li><span class="service-highlight">Slow Computer?</span> Laptop & PC Repair</li>
-                <li><span class="service-highlight">Weak WiFi?</span> Home Networks & WiFi</li>
-                <li><span class="service-highlight">Lost Files?</span> Data Recovery</li>
-                <li><span class="service-highlight">Safety worries?</span> Cyber security Advice</li>
-            </ul>
-            
-            <div class="location-info">
-                Proudly serving the Sid Valley and surrounding areas<br>
-                Drop off / Pick up service available
-            </div>
-            
-            <div class="cta-text">Get in touch today:</div>
-            
-            <!-- Contact Section (Reformatted & Linked) -->
-            <div class="contact-grid">
-                <div class="phone-group">
-                    <a href="tel:07539329396" class="contact-item">
-                        <svg class="icon-phone" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                        <span style="font-weight: bold;">07539329396</span>
-                    </a>
-                    
-                    <a href="https://wa.me" class="contact-item" target="_blank">
-                        <svg class="icon-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.79 13.96c-.24.67-1.38 1.24-2 1.32-.56.07-1.3-.13-3.79-1.16-3.19-1.32-5.24-4.56-5.4-4.78-.16-.22-1.31-1.74-1.31-3.32 0-1.58.82-2.35 1.12-2.67.3-.32.65-.41.87-.41.22 0 .43.01.62.02.2.01.46-.07.72.57.27.65.93 2.27 1.01 2.43.08.16.14.35.03.57-.11.22-.16.35-.33.54-.16.19-.35.43-.5.58-.16.16-.33.34-.14.67.19.32.85 1.41 1.83 2.28 1.26 1.13 2.32 1.47 2.65 1.63.33.16.52.14.71-.08.19-.22.82-.95 1.04-1.28.22-.33.44-.27.74-.16.3.11 1.91.9 2.24 1.06.33.16.54.24.62.38.08.14.08.82-.16 1.49z"/></svg>
-                        <span>Chat on WhatsApp</span>
-                    </a>
-                </div>
-                
-                <a href="mailto:SidmouthTech@gmail.com" class="contact-item">
-                    <svg class="icon-email" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span>SidmouthTech@gmail.com</span>
-                </a>
-                
-                <a href="https://facebook.com" target="_blank" class="contact-item">
-                    <svg class="icon-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    <span>@SidmouthTech</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Right Side: Logo & Owner Name -->
-        <div class="right-column">
+        <!-- Top Section: Branding, Logo & Owner Name -->
+        <div class="branding-header">
             <div class="logo-container">
                 <img src="logo.svg" alt="Sidmouth Tech Ltd Logo">
             </div>
+            <h1>Sidmouth Tech Ltd</h1>
             <div class="owner-name">Rob Dunford</div>
+        </div>
+
+        <div class="tagline">Friendly & Patient Home IT Help</div>
+        
+        <div class="intro">Stuck with Technology? We can help!</div>
+        
+        <!-- Core Services -->
+        <ul class="services-list">
+            <li><span class="service-highlight">Slow Computer?</span> Laptop & PC Repair</li>
+            <li><span class="service-highlight">Weak WiFi?</span> Home Networks & WiFi</li>
+            <li><span class="service-highlight">Lost Files?</span> Data Recovery</li>
+            <li><span class="service-highlight">Safety worries?</span> Cyber security Advice</li>
+        </ul>
+        
+        <div class="location-info">
+            Proudly serving the Sid Valley and surrounding areas<br>
+            Drop off / Pick up service available
+        </div>
+        
+        <div class="cta-text">Get in touch today:</div>
+        
+        <!-- Contact Links Stack -->
+        <div class="contact-grid">
+            <div class="phone-group">
+                <a href="tel:07539329396" class="contact-item">
+                    <svg class="icon-phone" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <span style="font-weight: bold;">07539329396</span>
+                </a>
+                
+                <a href="https://wa.me" class="contact-item" target="_blank">
+                    <svg class="icon-whatsapp" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.817 9.817 0 0 0 12.04 2zm5.79 13.96c-.24.67-1.38 1.24-2 1.32-.56.07-1.3-.13-3.79-1.16-3.19-1.32-5.24-4.56-5.4-4.78-.16-.22-1.31-1.74-1.31-3.32 0-1.58.82-2.35 1.12-2.67.3-.32.65-.41.87-.41.22 0 .43.01.62.02.2.01.46-.07.72.57.27.65.93 2.27 1.01 2.43.08.16.14.35.03.57-.11.22-.16.35-.33.54-.16.19-.35.43-.5.58-.16.16-.33.34-.14.67.19.32.85 1.41 1.83 2.28 1.26 1.13 2.32 1.47 2.65 1.63.33.16.52.14.71-.08.19-.22.82-.95 1.04-1.28.22-.33.44-.27.74-.16.3.11 1.91.9 2.24 1.06.33.16.54.24.62.38.08.14.08.82-.16 1.49z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+            
+            <a href="mailto:SidmouthTech@gmail.com" class="contact-item">
+                <svg class="icon-email" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>SidmouthTech@gmail.com</span>
+            </a>
+            
+            <a href="https://facebook.com" target="_blank" class="contact-item">
+                <svg class="icon-facebook" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>@SidmouthTech</span>
+            </a>
         </div>
 
     </div>
