@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave us a review</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: #f0f2f5;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: white;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    max-width: 360px;
+  }
+  h1 { font-size: 18px; margin: 0 0 12px; color: #1c1e21; }
+  p { font-size: 14px; color: #606770; margin: 0 0 20px; }
+  a.btn {
+    display: inline-block;
+    background: #1877f2;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Taking you to leave a review…</h1>
+    <p>If nothing happens in a few seconds, tap the button below.</p>
+    <a class="btn" id="fallback" href="https://m.facebook.com/sidmouthswimacademy/reviews">Leave a review</a>
+  </div>
+
+<script>
+  // Target: your Facebook page's reviews/recommendations tab
+  var fbPath = "sidmouthswimacademy/reviews";
+  var mobileWebUrl = "https://m.facebook.com/" + fbPath;
+  var desktopUrl = "https://www.facebook.com/" + fbPath;
+
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var isAndroid = /android/i.test(ua);
+  var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+
+  if (isAndroid) {
+    // Force Android to open the link in Chrome instead of letting the
+    // Facebook app intercept it (the app doesn't reliably deep-link to
+    // the reviews screen, it just opens the page/timeline).
+    var intentUrl =
+      "intent://m.facebook.com/" + fbPath +
+      "#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" +
+      encodeURIComponent(mobileWebUrl) + ";end;";
+    window.location.href = intentUrl;
+  } else if (isIOS) {
+    // iOS Safari generally handles this link fine and shows the
+    // recommendation prompt without app interception.
+    window.location.href = mobileWebUrl;
+  } else {
+    // Desktop
+    window.location.href = desktopUrl;
+  }
+</script>
+</body>
+</html>
