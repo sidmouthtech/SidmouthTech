@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firmware & Embedded Engineering | Rob Dunford</title>
+<meta name="description" content="Contract firmware and embedded systems engineering: bare-metal and RTOS development, driver bring-up, and prototype-to-production support.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Rob Dunford — Firmware Engineering",
+  "url": "https://sidmouthtech.co.uk/firmware.html",
+  "telephone": "+447539329396",
+  "email": "SidmouthTech@gmail.com",
+  "areaServed": "GB",
+  "description": "Contract firmware and embedded systems engineering services, including bare-metal and RTOS firmware, hardware bring-up, and driver development."
+}
+</script>
+<style>
+  :root{
+    --ink:#11161d;
+    --panel:#171e27;
+    --panel-2:#1d2530;
+    --copper:#b8703c;
+    --copper-light:#d99a63;
+    --text:#e9e6dd;
+    --text-dim:#9aa3ad;
+    --rule:#2a323c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    line-height:1.55;
+  }
+  a{color:var(--copper-light);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+
+  nav.back{
+    padding:22px 24px;
+    max-width:760px;
+    margin:0 auto;
+  }
+  nav.back a{
+    text-decoration:none;
+    color:var(--text-dim);
+    font-size:0.95rem;
+  }
+  nav.back a:hover{color:var(--copper-light);}
+
+  header.hero{
+    padding:20px 0 50px;
+  }
+  header.hero .role{
+    font-family:'Consolas','Courier New',monospace;
+    color:var(--copper);
+    font-size:1rem;
+    margin-bottom:14px;
+  }
+  header.hero h1{
+    font-size:2.6rem;
+    color:#fff;
+    line-height:1.15;
+    margin-bottom:18px;
+    max-width:600px;
+  }
+  header.hero p.lede{
+    font-size:1.2rem;
+    color:var(--text-dim);
+    max-width:560px;
+  }
+
+  section{
+    padding:44px 0;
+    border-top:1px solid var(--rule);
+  }
+  section h2{
+    font-size:1.5rem;
+    color:#fff;
+    margin-bottom:22px;
+  }
+
+  .work-list{
+    list-style:none;
+  }
+  .work-list li{
+    padding:16px 0;
+    border-bottom:1px solid var(--rule);
+    display:flex;
+    gap:20px;
+  }
+  .work-list li:last-child{border-bottom:none;}
+  .work-list .name{
+    min-width:210px;
+    font-weight:700;
+    color:#fff;
+  }
+  .work-list .detail{color:var(--text-dim);}
+
+  .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .stack span{
+    font-family:'Consolas','Courier New',monospace;
+    font-size:0.9rem;
+    color:var(--copper-light);
+    background:var(--panel-2);
+    border:1px solid var(--rule);
+    padding:6px 12px;
+    border-radius:4px;
+  }
+
+  .process ol{
+    counter-reset:step;
+    list-style:none;
+  }
+  .process li{
+    position:relative;
+    padding:14px 0 14px 46px;
+    border-bottom:1px solid var(--rule);
+  }
+  .process li:last-child{border-bottom:none;}
+  .process li::before{
+    counter-increment:step;
+    content:counter(step);
+    position:absolute;
+    left:0;
+    top:14px;
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:var(--panel-2);
+    border:1px solid var(--copper);
+    color:var(--copper-light);
+    font-family:'Consolas','Courier New',monospace;
+    font-size:0.9rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .process .step-title{font-weight:700;color:#fff;margin-bottom:4px;}
+  .process .step-detail{color:var(--text-dim);}
+
+  .cta-box{
+    background:var(--panel);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:36px;
+    text-align:left;
+  }
+  .cta-box h2{margin-bottom:12px;}
+  .cta-box p{color:var(--text-dim);margin-bottom:24px;max-width:520px;}
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .contact-row a{
+    text-decoration:none;
+    font-weight:700;
+    font-size:1rem;
+    padding:12px 20px;
+    border-radius:6px;
+    color:var(--ink);
+    background:var(--copper);
+  }
+  .contact-row a.secondary{
+    background:transparent;
+    color:var(--text);
+    border:1px solid var(--rule);
+  }
+
+  footer{
+    padding:36px 0 60px;
+    color:var(--text-dim);
+    font-size:0.9rem;
+  }
+</style>
+</head>
+<body>
+
+  <nav class="back">
+    <a href="index.html">&larr; Rob Dunford</a>
+  </nav>
+
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="role">firmware &amp; embedded systems</div>
+      <h1>Firmware that has to work when nobody's watching it run.</h1>
+      <p class="lede">I take embedded hardware from a bring-up board to firmware you can actually ship — available for contract and freelance work.</p>
+    </header>
+
+    <section>
+      <h2>Where I help</h2>
+      <ul class="work-list">
+        <li><span class="name">Bare-metal &amp; RTOS firmware</span><span class="detail">Writing and structuring firmware for resource-constrained microcontrollers, with or without an RTOS underneath.</span></li>
+        <li><span class="name">Hardware bring-up</span><span class="detail">Getting a new board talking — clocks, peripherals, power sequencing — and finding what the schematic didn't tell you.</span></li>
+        <li><span class="name">Driver development</span><span class="detail">Writing and debugging drivers for sensors, displays, radios and storage, including the register-level detail work.</span></li>
+        <li><span class="name">Debugging &amp; reliability</span><span class="detail">Chasing down intermittent faults, memory issues and timing bugs that only show up after hours of runtime.</span></li>
+        <li><span class="name">Prototype to production</span><span class="detail">Helping small hardware teams get from a working prototype to firmware that's ready for the field.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Rob's toolkit</h2>
+      <div class="stack">
+        <span>C / C++</span>
+        <span>ARM Cortex-M</span>
+        <span>Microchip PIC</span>
+        <span>Texas MSP430</span>
+        <span>Arduino</span>
+        <span>Git Source control</span>
+        <span>JIRA Project/task management</span>
+        <span>I2C / SPI / UART</span>
+        <span>JTAG / SWD debugging</span>
+        <span>Bootloaders</span>
+        <span>Low-power design</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta-box">
+        <h2>Have a board that needs firmware?</h2>
+        <p>Tell me what you're building and roughly where it's stuck — I'll let you know honestly if it's something I can help with.</p>
+        <div class="contact-row">
+          <a href="mailto:SidmouthTech@gmail.com">Email me</a>
+          <a class="secondary" href="tel:07539329396">Call: 07539329396</a>
+        </div>
+        <p style="margin-top:20px;margin-bottom:0;">For more info about Rob see his <a href="https://www.linkedin.com/in/rjdunford/" target="_blank" rel="noopener">LinkedIn page</a>.</p>
+      </div>
+    </section>
+
+    <footer>
+      Rob Dunford — also does friendly home IT support in Sidmouth via <a href="it-support.html">Sidmouth Tech Ltd</a>.
+    </footer>
+
+  </div>
+
+</body>
+</html>
