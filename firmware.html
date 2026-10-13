@@ -184,6 +184,19 @@
     color:var(--text-dim);
     font-size:0.9rem;
   }
+
+  /* Stack items vertically on mobile devices */
+  @media (max-width: 768px) {
+  .work-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem; /* Adds space between header and description */
+  }
+
+  .work-list li + li {
+    margin-top: 1.5rem; /* Adds spacing between list items */
+  }
+}
 </style>
 </head>
 <body>
